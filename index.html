@@ -893,31 +893,30 @@
         outline-offset: 4px;
       }
 
-      .music-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.9rem 1.8rem;
-        border: 1px solid rgba(255, 255, 255, 0.24);
-        border-radius: 50px;
-        color: #eaf4ff;
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        font-size: 1rem;
-        font-weight: 700;
-        text-decoration: none;
-        transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      .music-section {
+        display: grid;
+        gap: 0.85rem;
+        margin-top: 1.25rem;
+        position: relative;
+        z-index: 1;
       }
 
-      .music-button:hover {
-        transform: translateY(-3px) scale(1.05);
-        background: rgba(255, 255, 255, 0.16);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+      .music-section .mini-title {
+        margin: 0;
       }
 
-      .music-button:focus-visible {
-        outline: 3px solid #48dbfb;
-        outline-offset: 4px;
+      .music-player {
+        width: 100%;
+        height: 175px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .music-note {
+        margin: 0;
+        color: #b8c6db;
+        font-size: 0.85rem;
       }
 
       .message {
@@ -1036,20 +1035,24 @@
       <div class="action-row">
         <button id="party-button" type="button">Pop the confetti</button>
       </div>
-      <div class="action-row" aria-label="Birthday songs">
-        <a
-          class="music-button"
-          href="https://music.apple.com/us/album/keeping-my-faith-in-you/723428198?i=723428205"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Keeping My Faith in You — Luther Vandross</a>
-        <a
-          class="music-button"
-          href="https://music.apple.com/us/album/bed-peace-feat-childish-gambino/1443200234?i=1443200259"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Bed Peace — Jhené Aiko</a>
-      </div>
+      <section class="music-section" aria-label="Birthday songs">
+        <p class="mini-title">Songs picked for you</p>
+        <iframe
+          class="music-player"
+          title="Keeping My Faith in You by Luther Vandross"
+          src="https://embed.music.apple.com/us/album/keeping-my-faith-in-you/723428198?i=723428205"
+          allow="autoplay *; encrypted-media *; clipboard-write"
+          loading="lazy"
+        ></iframe>
+        <iframe
+          class="music-player"
+          title="Bed Peace by Jhené Aiko"
+          src="https://embed.music.apple.com/us/album/bed-peace-feat-childish-gambino/1443200234?i=1443200259"
+          allow="autoplay *; encrypted-media *; clipboard-write"
+          loading="lazy"
+        ></iframe>
+        <p class="music-note">Tap Play in the player. Apple Music may ask you to sign in for full-song playback.</p>
+      </section>
       <p class="message" id="message" aria-live="polite"></p>
     </main>
 
