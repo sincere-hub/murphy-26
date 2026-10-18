@@ -1052,15 +1052,15 @@
     </main>
 
     <script>
-      const jokes = [
+      const kindMessages = [
+        "You have a good heart, and I hope this next year brings you the same kindness you give to others.",
+        "I hope you feel appreciated today. You deserve good things, genuine laughter, and plenty of reasons to smile.",
+        "You make a difference to the people who care about you. I hope you never forget that.",
+        "Wishing you peace, happiness, and little moments that remind you how special you are.",
+        "May this new year bring you closer to the things that make you feel happy and fulfilled.",
+        "I’m grateful for the good memories we shared, and I truly hope life is kind to you.",
         "“The LORD bless thee, and keep thee.” — Numbers 6:24",
-        "At 26, “going out” means leaving the house before 9pm.",
-        "“This is the day which the LORD hath made; we will rejoice and be glad in it.” — Psalm 118:24",
-        "26: old enough to know better, young enough to do it anyway.",
-        "You’re not aging — you’re leveling up.",
-        "Hope your birthday is full of cake and absolutely no annoying plot twists.",
-        "Here’s to fewer broken things and more broken records.",
-        "Wishing you good luck, great snacks, and a year full of little joys, big laughs, and lovely surprises."
+        "“This is the day which the LORD hath made; we will rejoice and be glad in it.” — Psalm 118:24"
       ];
 
       const partyButton = document.getElementById("party-button");
@@ -1098,7 +1098,7 @@
           createConfetti();
         }
 
-        message.textContent = jokes[Math.floor(Math.random() * jokes.length)];
+        message.textContent = kindMessages[Math.floor(Math.random() * kindMessages.length)];
         message.classList.add("show");
       }
 
