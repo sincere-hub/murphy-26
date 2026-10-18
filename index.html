@@ -813,6 +813,30 @@
         font-size: 0.9rem;
       }
 
+      .video-wrap {
+        width: min(100%, 320px);
+        margin: 0 auto 1.1rem;
+        padding: 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 19px;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-wrap .mini-title {
+        margin: 0 0 0.6rem;
+      }
+
+      .birthday-video {
+        display: block;
+        width: 100%;
+        max-height: 420px;
+        aspect-ratio: 9 / 16;
+        border-radius: 12px;
+        background: #080b14;
+        object-fit: contain;
+      }
+
       .side-panel {
         gap: 0.85rem;
       }
@@ -1010,6 +1034,14 @@
         <div class="photo-wrap">
           <img src="assets/murphy-photo.png" alt="A close-up of two hands together at a restaurant table" />
           <span class="photo-caption">grateful for the good memories</span>
+        </div>
+
+        <div class="video-wrap">
+          <p class="mini-title">A little birthday video</p>
+          <video class="birthday-video" controls playsinline preload="metadata">
+            <source src="assets/murphy-birthday.mp4" type="video/mp4" />
+            Your browser does not support video playback.
+          </video>
         </div>
 
         <aside class="side-panel">
