@@ -657,6 +657,16 @@
         background: linear-gradient(145deg, rgba(255,255,255,0.08), transparent 42%, rgba(72,219,251,0.04));
       }
 
+      .card::after {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        inset: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 17px;
+        pointer-events: none;
+      }
+
       @keyframes floatIn {
         from { opacity: 0; transform: translateY(40px) scale(0.95); }
         to { opacity: 1; transform: translateY(0) scale(1); }
@@ -718,22 +728,31 @@
 
       .age::before,
       .age::after {
+        content: "";
         position: absolute;
+        width: 0.16em;
+        height: 0.16em;
+        background: #fff0a6;
+        clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
         -webkit-text-fill-color: initial;
-        font-size: 0.3em;
+        filter: drop-shadow(0 0 5px rgba(255, 240, 166, 0.8));
+        animation: twinkle 1.8s ease-in-out infinite alternate;
       }
 
       .age::before {
-        content: "👑";
-        top: 0.1em;
-        left: -0.95em;
-        transform: rotate(-18deg);
+        top: 0.18em;
+        left: -0.62em;
       }
 
       .age::after {
-        content: "✨";
-        top: 0;
-        right: -0.9em;
+        right: -0.62em;
+        bottom: 0.16em;
+        animation-delay: 0.8s;
+      }
+
+      @keyframes twinkle {
+        from { opacity: 0.45; transform: scale(0.75) rotate(0deg); }
+        to { opacity: 1; transform: scale(1.15) rotate(35deg); }
       }
 
       @keyframes pulse {
@@ -766,10 +785,10 @@
         width: min(100%, 320px);
         aspect-ratio: 4 / 3;
         margin: 0 auto 1.1rem;
-        border: 1px solid rgba(255,255,255,0.18);
-        border-radius: 16px;
+        border: 3px solid rgba(255, 255, 255, 0.75);
+        border-radius: 19px;
         background: rgba(0,0,0,0.18);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        box-shadow: 0 0 0 1px rgba(254, 202, 87, 0.38), 0 12px 32px rgba(0,0,0,0.26);
         transform: none;
       }
 
@@ -810,6 +829,11 @@
         border: 1px solid rgba(255,255,255,0.12);
         border-radius: 16px;
         background: rgba(255,255,255,0.05);
+      }
+
+      .blessing-panel {
+        border-color: rgba(254, 202, 87, 0.32);
+        background: linear-gradient(135deg, rgba(254, 202, 87, 0.11), rgba(255, 255, 255, 0.04));
       }
 
       .mini-title {
@@ -977,61 +1001,66 @@
     <main class="card">
       <header class="header">
         <h1>
-          <span class="title-line">Happy 26th, Murphy! 🎂</span>
+          <span class="title-line">Happy 26th, Murphy!</span>
         </h1>
-        <p class="subtitle">Hope this year brings you plenty of laughs, good surprises, and all the things you deserve. 🎉</p>
+        <p class="subtitle">Hope this year brings you plenty of laughs, good surprises, and all the things you deserve.</p>
         <div class="age">26</div>
       </header>
 
       <div class="content">
         <div class="photo-wrap">
           <img src="assets/murphy-photo.png" alt="A close-up of two hands together at a restaurant table" />
-          <span class="photo-caption">grateful for the good memories 💛</span>
+          <span class="photo-caption">grateful for the good memories</span>
         </div>
 
         <aside class="side-panel">
+          <div class="panel quote-panel blessing-panel">
+            <p class="mini-title">A birthday blessing</p>
+            <p class="quote">“The LORD bless thee, and keep thee: the LORD make his face shine upon thee, and be gracious unto thee.” — Numbers 6:24–25</p>
+          </div>
+
           <div class="panel joke-box">
             <p class="quote">
               Murphy’s Law says <em>“anything that can go wrong, will go wrong.”</em><br />
-              But today? Today everything goes <em>right</em> — you deserve it. 🥳
+              But today? Today everything goes <em>right</em> — you deserve it.
             </p>
           </div>
 
           <div class="panel quote-panel">
-            <p class="mini-title">A little reminder 💌</p>
-            <p class="quote">Hearing from you today would make my day a little brighter. I miss your voice, and our conversations always make me feel close to you. 💛 Even though things are different now, I still care about you and hope life brings you lots of good things.</p>
+            <p class="mini-title">A little reminder</p>
+            <p class="quote">Hearing from you today would make my day a little brighter. I miss your voice, and our conversations always make me feel close to you. Even though things are different now, I still care about you and hope life brings you lots of good things.</p>
           </div>
         </aside>
       </div>
 
       <div class="action-row">
-        <button id="party-button" type="button">Pop the confetti 🎉</button>
+        <button id="party-button" type="button">Pop the confetti</button>
         <a
           class="music-button"
           href="https://open.spotify.com/search/Luther%20Vandross%20Keep%20My%20Faith%20in%20You"
           target="_blank"
           rel="noopener noreferrer"
-        >Listen to Luther Vandross 🎵</a>
+        >Listen to Luther Vandross</a>
         <a
           class="music-button"
           href="https://open.spotify.com/search/Jhene%20Aiko%20Bed%20Peace"
           target="_blank"
           rel="noopener noreferrer"
-        >Listen to Jhené Aiko 🎶</a>
+        >Listen to Jhené Aiko</a>
       </div>
       <p class="message" id="message" aria-live="polite"></p>
     </main>
 
     <script>
       const jokes = [
-        "“The LORD bless thee, and keep thee.” — Numbers 6:24 🙏",
-        "At 26, “going out” means leaving the house before 9pm. ⏰",
-        "“This is the day which the LORD hath made; we will rejoice and be glad in it.” — Psalm 118:24 ✨",
-        "26: old enough to know better, young enough to do it anyway. 🚀",
-        "You’re not aging — you’re leveling up. 🎮",
-        "Hope your birthday is full of cake and absolutely no annoying plot twists. 🎂",
-        "Here’s to fewer broken things and more broken records. 🏆",
-        "Wishing you good luck, great snacks, and a year that mostly follows the instructions. 😄"
+        "“The LORD bless thee, and keep thee.” — Numbers 6:24",
+        "At 26, “going out” means leaving the house before 9pm.",
+        "“This is the day which the LORD hath made; we will rejoice and be glad in it.” — Psalm 118:24",
+        "26: old enough to know better, young enough to do it anyway.",
+        "You’re not aging — you’re leveling up.",
+        "Hope your birthday is full of cake and absolutely no annoying plot twists.",
+        "Here’s to fewer broken things and more broken records.",
+        "Wishing you good luck, great snacks, and a year full of little joys, big laughs, and lovely surprises."
       ];
 
       const partyButton = document.getElementById("party-button");
